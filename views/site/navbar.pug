@@ -1,0 +1,12 @@
+- var items = { "": 'Home', "report": 'Report', "about": 'About' };
+div(class="header")
+    nav(class="navbar navbar-dark bg-dark navbar-expand-md rounded")
+        a(class="navbar-brand" href="wasd") Lösningen
+        button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#containerNavbar" aria-controls="containerNavbar" aria-expanded="false" aria-label="Toggle navigation")
+            span(class="navbar-toggler-icon")
+        
+        div(class="collapse navbar-collapse" id="containerNavbar")
+            ul(class="navbar-nav mr-auto")
+                each item, path in items
+                    li(class="nav-item")
+                        a(class="nav-link", class= (path == urlPath.substring(1)) && 'active', href= "/" + path)= item
