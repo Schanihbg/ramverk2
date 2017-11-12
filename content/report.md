@@ -24,6 +24,26 @@ Jag använder markdown för all text jag har på sidan. Tycker markdown är smid
 Kmom02
 =========================
 
+**Har du jobbat med Docker eller andra virtualiseringstekniker innan?**
+
+Jag har inte jobbat med Docker innan, eller ja förutom att testa en image lite snabbt. Annars har jag inte gjort en egen compose eller dylikt.
+Har använt kvm på jobbet förut, det är bra att kunna utnyttja en dator på flera sätt än att bara ha ett operativsystem med en funktion som att hosta en webbsida. VirtualBox är också ett sätt på att virtualisera hemma, dock mycket enklare.
+
+
+**Hur ser du på möjligheterna att använda dig av Docker för att jobba med tester av ditt repo?**
+
+Att man kan få en ren kopia på sitt repo utan en massa skräpfiler som kanske tolkas annorlunda utav testerna. Helt enkelt att det blir som första gången man ska installera eller konfigurera om varje gång. Om man har en server ståendes så kan den köra tester hela tiden.
+
+**Gick allt smidigt eller stötte du på problem?**
+
+Det gick smidigt, fick läsa på lite extra utöver texten och hänvisa mig till Dockers Node sida. Annars är det enkelt att dra ner andras images och köra det man vill. Då kanske man inte lär sig lika mycket.
+
+**Skapade du din egen image, berätta om den?**
+
+Nej jag gjorde ingen egen image, men det verkar vara rätt så lätt. Man kan köra egna kommandon som man definierar i en Dockerfile. Man kanske kan dra ner kod direkt från Github? Det hade varit kul att leverera redovisningen via en Docker image. Då kan man säkerställa att det verkligen fungerar ”överallt”.
+
+
+
 Kmom03
 =========================
 
