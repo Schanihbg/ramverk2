@@ -1,0 +1,39 @@
+version: "3"
+services:
+    node910:
+        image: node:9.1.0
+        ports:
+            - "3091:3091"
+        user: "node"
+        working_dir: /home/node/app
+        environment:
+            - NODE_ENV=production
+            - DBWEBB_PORT=3091
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"
+    node891:
+        image: node:8.9.1
+        ports:
+            - "3891:3891"
+        user: "node"
+        working_dir: /home/node/app
+        environment:
+            - NODE_ENV=production
+            - DBWEBB_PORT=3891
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"
+    node612:
+        image: node:6.12.0
+        ports:
+            - "3612:3612"
+        user: "node"
+        working_dir: /home/node/app
+        environment:
+            - NODE_ENV=production
+            - DBWEBB_PORT=3612
+        volumes:
+            - ./:/home/node/app
+        command: "npm start"
+
