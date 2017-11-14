@@ -1,26 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var handleRoute = require("./handleRoute.js");
 
-/* GET home page. */
-router.get('/', function(req, res) {
-    res.render('home', {
-        title: 'Home',
-        urlPath: req.path
-    });
-});
+let homeRoute = {route: "/", renderPath: "home", title: "Home"};
+let reportRoute = {route: "/report", renderPath: "report", title: "Report"};
+let aboutRoute = {route: "/about", renderPath: "about", title: "About"};
 
-router.get('/report', function(req, res) {
-    res.render('report', {
-        title: 'Report',
-        urlPath: req.path
-    });
-});
+let routes = [homeRoute, reportRoute, aboutRoute];
 
-router.get('/about', function(req, res) {
-    res.render('about', {
-        title: 'About',
-        urlPath: req.path
-    });
-});
+/* GET pages. */
+
+for (var i in routes) {
+    handleRoute(router, routes[i]);
+}
 
 module.exports = router;
