@@ -121,7 +121,7 @@ check: check-tools-js #check-tools-bash check-tools-php
 
 # target: test               - Run all tests.
 .PHONY: test
-test: htmlhint stylelint eslint jsunittest
+test: htmlhint stylelint eslint jsunittest test-npm
 	@$(call HELPTEXT,$@)
 	[ ! -f composer.json ] || composer validate
 
@@ -215,7 +215,7 @@ check-tools-js:
 .PHONY: htmlhint
 htmlhint:
 	@$(call HELPTEXT,$@)
-	[ ! -f .htmlhintrc ] || $(HTMLHINT) --ignore build/**,node_modules/** | grep -v "Config loaded:"
+	[ ! -f .htmlhintrc ] || $(HTMLHINT) --ignore build/**,node_modules/**,coverage/** | grep -v "Config loaded:"
 
 
 
@@ -263,14 +263,32 @@ endif
 
 
 
-
-# ------------------------------------------------------------------------
-#
-# Theme
-#
-# target: theme              - Do make build install in theme/ if available.
-.PHONY: theme
-theme:
+# target: test-npm   - Test using npm.
+.PHONY: test-npm
+test-npm:
 	@$(call HELPTEXT,$@)
-	[ ! -d theme ] || $(MAKE) --directory=theme build install
-	#[ ! -d theme ] || ( cd theme && make build install )
+	[ ! -f package.json ] || npm test
+
+# target: test-docker   - Test with docker, all node versions
+.PHONY: test-docker
+test-docker: test1 test2 test3
+	@$(call HELPTEXT,$@)
+
+
+# target: test1   - Test with docker, node version 9.1.0
+.PHONY: test1
+test1:
+	@$(call HELPTEXT,$@)
+	[ ! -f docker-compose.yml ] || docker-compose run node910
+
+# target: test2  - Test with docker, node version 8.9.1
+.PHONY: test2
+test2:
+	@$(call HELPTEXT,$@)
+	[ ! -f docker-compose.yml ] || docker-compose run node891
+
+# target: test3   - Test with docker, node version 6.1.2
+.PHONY: test3
+test3:
+	@$(call HELPTEXT,$@)
+	[ ! -f docker-compose.yml ] || docker-compose run node612

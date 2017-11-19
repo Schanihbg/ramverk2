@@ -4,7 +4,9 @@
   "description": "Losningen Redovisa",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "nyc --all --reporter=html --reporter=text mocha --reporter=dot test/**/*.js",
+    "test-scrutinizer": "nyc --all --reporter=clover mocha test/**/*.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
