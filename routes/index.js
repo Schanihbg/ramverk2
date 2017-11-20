@@ -11,6 +11,10 @@ let routes = [homeRoute, reportRoute, aboutRoute];
 /* GET pages. */
 
 for (var i in routes) {
+    if ( ! routes.hasOwnProperty(i)) {
+        continue; // Skip keys from the prototype.
+    }
+
     handleRoute(router, routes[i]);
 }
 
