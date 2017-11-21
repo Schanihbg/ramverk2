@@ -1,40 +1,43 @@
 version: "3"
 services:
-    node910:
-        image: node:9.1.0
+    node9:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-node-9-alpine
         ports:
-            - "3910:3910"
+            - "3009:3009"
         user: "node"
-        working_dir: /home/node/app
         environment:
             - NODE_ENV=production
-            - DBWEBB_PORT=3910
+            - DBWEBB_PORT=3009
         volumes:
-            - ./:/home/node/app
-        command: bash -c "make test"
+            - ./:/app/
+        command: /bin/sh -c "make test"
 
-    node891:
-        image: node:8.9.1
+    node8:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-node-8-alpine
         ports:
-            - "3891:3891"
+            - "3008:3008"
         user: "node"
-        working_dir: /home/node/app
         environment:
             - NODE_ENV=production
-            - DBWEBB_PORT=3891
+            - DBWEBB_PORT=3008
         volumes:
-            - ./:/home/node/app
-        command: bash -c "make test"
+            - ./:/app/
+        command: /bin/sh -c "make test"
 
-    node612:
-        image: node:6.12.0
+    node6:
+        build:
+            context: .
+            dockerfile: docker/Dockerfile-node-6-alpine
         ports:
-            - "3612:3612"
+            - "3006:3006"
         user: "node"
-        working_dir: /home/node/app
         environment:
             - NODE_ENV=production
-            - DBWEBB_PORT=3612
+            - DBWEBB_PORT=3006
         volumes:
-            - ./:/home/node/app
-        command: bash -c "make test"
+            - ./:/app/
+        command: /bin/sh -c "make test"

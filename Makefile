@@ -275,20 +275,20 @@ test-docker: test1 test2 test3
 	@$(call HELPTEXT,$@)
 
 
-# target: test1   - Test with docker, node version 9.1.0
+# target: test1   - Test with docker, node version 9
 .PHONY: test1
 test1:
 	@$(call HELPTEXT,$@)
-	[ ! -f docker-compose.yml ] || docker-compose run node910
+	[ ! -f docker-compose.yml ] || docker-compose run node9
 
-# target: test2  - Test with docker, node version 8.9.1
+# target: test2  - Test with docker, node version 8
 .PHONY: test2
 test2:
 	@$(call HELPTEXT,$@)
-	[ ! -f docker-compose.yml ] || docker-compose run node891
+	[ ! -f docker-compose.yml ] || docker-compose run node8
 
-# target: test3   - Test with docker, node version 6.1.2
+# target: test3   - Test with docker, node version 6
 .PHONY: test3
 test3:
 	@$(call HELPTEXT,$@)
-	[ ! -f docker-compose.yml ] || docker-compose run node612
+	[ ! -f docker-compose.yml ] || docker-compose run node6
